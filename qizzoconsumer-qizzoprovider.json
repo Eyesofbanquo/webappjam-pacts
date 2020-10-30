@@ -29,10 +29,16 @@
           ]
         },
         "matchingRules": {
+          "$.body.success": {
+            "match": "type"
+          },
           "$.body.data": {
             "min": 1
           },
           "$.body.data[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].inreview": {
             "match": "type"
           }
         }

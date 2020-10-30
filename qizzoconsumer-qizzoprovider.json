@@ -14,7 +14,7 @@
         "path": "/api/categories"
       },
       "response": {
-        "status": 200,
+        "status": 201,
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },

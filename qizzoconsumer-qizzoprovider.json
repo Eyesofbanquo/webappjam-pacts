@@ -43,6 +43,59 @@
           }
         }
       }
+    },
+    {
+      "description": "a request to create a category named Night",
+      "providerState": "The category Night already exists",
+      "request": {
+        "method": "POST",
+        "path": "/api/categories",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Night"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a request to create a new category",
+      "providerState": "there are categories",
+      "request": {
+        "method": "POST",
+        "path": "/api/categories",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "New Nightmare"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": {
+            "id": "1",
+            "name": "New Nightmare",
+            "inreview": true
+          }
+        },
+        "matchingRules": {
+          "$.body.data.id": {
+            "match": "type"
+          }
+        }
+      }
     }
   ],
   "metadata": {

@@ -130,6 +130,62 @@
           }
         }
       }
+    },
+    {
+      "description": "a request to create a new question type",
+      "providerState": "there are question types",
+      "request": {
+        "method": "POST",
+        "path": "/api/question-types",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Newer"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": {
+            "id": "0",
+            "name": "Newer"
+          }
+        },
+        "matchingRules": {
+          "$.body.data.id": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to create a question type that already exists",
+      "providerState": "there are question types",
+      "request": {
+        "method": "POST",
+        "path": "/api/question-types",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Random"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": false,
+          "data": null
+        }
+      }
     }
   ],
   "metadata": {

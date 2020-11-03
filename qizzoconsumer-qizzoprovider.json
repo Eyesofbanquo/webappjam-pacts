@@ -45,26 +45,6 @@
       }
     },
     {
-      "description": "a request to create a category named Night",
-      "providerState": "The category Night already exists",
-      "request": {
-        "method": "POST",
-        "path": "/api/categories",
-        "headers": {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        "body": {
-          "name": "Night"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-        }
-      }
-    },
-    {
       "description": "a request to create a new category",
       "providerState": "there are categories",
       "request": {
@@ -94,6 +74,30 @@
           "$.body.data.id": {
             "match": "type"
           }
+        }
+      }
+    },
+    {
+      "description": "a request to create a category that already exists",
+      "providerState": "there are categories",
+      "request": {
+        "method": "POST",
+        "path": "/api/categories",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Random"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": false,
+          "data": null
         }
       }
     }

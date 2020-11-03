@@ -1,0 +1,227 @@
+{
+  "consumer": {
+    "name": "QizzoConsumer-question"
+  },
+  "provider": {
+    "name": "QizzoProvider"
+  },
+  "interactions": [
+    {
+      "description": "a request to retrieve questions",
+      "providerState": "questions exist",
+      "request": {
+        "method": "GET",
+        "path": "/api/questions"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": [
+            {
+              "id": "0",
+              "name": "Question",
+              "correctanswers": [
+                "Answer"
+              ],
+              "incorrectanswers": [
+                "Incorrect"
+              ],
+              "category_uid": "0",
+              "question_type_uid": "0",
+              "inreview": true
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.data": {
+            "min": 1
+          },
+          "$.body.data[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].correctanswers": {
+            "min": 1
+          },
+          "$.body.data[*].correctanswers[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].incorrectanswers": {
+            "min": 1
+          },
+          "$.body.data[*].incorrectanswers[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].category_uid": {
+            "match": "type"
+          },
+          "$.body.data[*].question_type_uid": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to create a new question",
+      "providerState": "questions exist with new category and question type ids",
+      "request": {
+        "method": "POST",
+        "path": "/api/questions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "New Question",
+          "correctAnswers": [
+            "One"
+          ],
+          "incorrectAnswers": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "categoryId": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
+          "questionTypeId": "d5266e6f-d053-4090-9c53-df5fee72322b"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": {
+            "id": "0",
+            "name": "New Question",
+            "correctanswers": [
+              "1"
+            ],
+            "incorrectanswers": [
+              "2",
+              "3",
+              "4"
+            ],
+            "inreview": true,
+            "category_uid": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
+            "question_type_uid": "54bb3cc4-e940-47bd-ba8b-f49e518333e1"
+          }
+        },
+        "matchingRules": {
+          "$.body.data": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to create a question that already exists",
+      "providerState": "ABC question exists with new category and question type ids",
+      "request": {
+        "method": "POST",
+        "path": "/api/questions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "ABC",
+          "correctAnswers": [
+            "One"
+          ],
+          "incorrectAnswers": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "categoryId": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
+          "questionTypeId": "d5266e6f-d053-4090-9c53-df5fee72322b"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": false,
+          "data": null
+        }
+      }
+    },
+    {
+      "description": "a request to create a question without a category",
+      "providerState": "ABC question exists with new category and question type ids",
+      "request": {
+        "method": "POST",
+        "path": "/api/questions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Add",
+          "correctAnswers": [
+            "One"
+          ],
+          "incorrectAnswers": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "categoryId": "",
+          "questionTypeId": "d5266e6f-d053-4090-9c53-df5fee72322b"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": false,
+          "error": "Please provide a category"
+        }
+      }
+    },
+    {
+      "description": "a request to create a question without a question type",
+      "providerState": "ABC question exists with new category and question type ids",
+      "request": {
+        "method": "POST",
+        "path": "/api/questions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "name": "Add",
+          "correctAnswers": [
+            "One"
+          ],
+          "incorrectAnswers": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "categoryId": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
+          "questionTypeId": ""
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": false,
+          "error": "Please provide a question type"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

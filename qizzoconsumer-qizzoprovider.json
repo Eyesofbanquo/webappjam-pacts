@@ -186,6 +186,63 @@
           "data": null
         }
       }
+    },
+    {
+      "description": "a request to retrieve questions",
+      "providerState": "questions exist",
+      "request": {
+        "method": "GET",
+        "path": "/api/questions"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": [
+            {
+              "id": "0",
+              "name": "Question",
+              "correctanswers": [
+                "Answer"
+              ],
+              "incorrectanswers": [
+                "Incorrect"
+              ],
+              "category_uid": "0",
+              "question_type_uid": "0",
+              "inreview": true
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.data": {
+            "min": 1
+          },
+          "$.body.data[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].correctanswers": {
+            "min": 1
+          },
+          "$.body.data[*].correctanswers[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].incorrectanswers": {
+            "min": 1
+          },
+          "$.body.data[*].incorrectanswers[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].category_uid": {
+            "match": "type"
+          },
+          "$.body.data[*].question_type_uid": {
+            "match": "type"
+          }
+        }
+      }
     }
   ],
   "metadata": {

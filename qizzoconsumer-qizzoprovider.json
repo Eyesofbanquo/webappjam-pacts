@@ -100,6 +100,36 @@
           "data": null
         }
       }
+    },
+    {
+      "description": "a get request",
+      "providerState": "there are question types",
+      "request": {
+        "method": "GET",
+        "path": "/api/question-types"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": [
+            {
+              "id": "0",
+              "name": "question-type"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.data": {
+            "min": 1
+          },
+          "$.body.data[*].*": {
+            "match": "type"
+          }
+        }
+      }
     }
   ],
   "metadata": {

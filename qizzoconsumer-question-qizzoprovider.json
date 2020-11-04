@@ -23,15 +23,16 @@
             {
               "id": "0",
               "name": "Question",
-              "correctanswers": [
+              "correct_answers": [
                 "Answer"
               ],
-              "incorrectanswers": [
+              "incorrect_answers": [
                 "Incorrect"
               ],
               "category_uid": "0",
               "question_type_uid": "0",
-              "inreview": true
+              "in_review": true,
+              "deleted": false
             }
           ]
         },
@@ -42,16 +43,16 @@
           "$.body.data[*].*": {
             "match": "type"
           },
-          "$.body.data[*].correctanswers": {
+          "$.body.data[*].correct_answers": {
             "min": 1
           },
-          "$.body.data[*].correctanswers[*].*": {
+          "$.body.data[*].correct_answers[*].*": {
             "match": "type"
           },
-          "$.body.data[*].incorrectanswers": {
+          "$.body.data[*].incorrect_answers": {
             "min": 1
           },
-          "$.body.data[*].incorrectanswers[*].*": {
+          "$.body.data[*].incorrect_answers[*].*": {
             "match": "type"
           },
           "$.body.data[*].category_uid": {
@@ -96,17 +97,18 @@
           "data": {
             "id": "0",
             "name": "New Question",
-            "correctanswers": [
+            "correct_answers": [
               "1"
             ],
-            "incorrectanswers": [
+            "incorrect_answers": [
               "2",
               "3",
               "4"
             ],
-            "inreview": true,
+            "in_review": true,
             "category_uid": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
-            "question_type_uid": "54bb3cc4-e940-47bd-ba8b-f49e518333e1"
+            "question_type_uid": "54bb3cc4-e940-47bd-ba8b-f49e518333e1",
+            "deleted": false
           }
         },
         "matchingRules": {

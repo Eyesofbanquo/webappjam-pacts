@@ -24,7 +24,8 @@
             {
               "id": "1",
               "name": "Night",
-              "inreview": false
+              "in_review": false,
+              "deleted": false
             }
           ]
         },
@@ -38,7 +39,7 @@
           "$.body.data[*].*": {
             "match": "type"
           },
-          "$.body.data[*].inreview": {
+          "$.body.data[*].in_review": {
             "match": "type"
           }
         }
@@ -67,7 +68,8 @@
           "data": {
             "id": "1",
             "name": "New Nightmare",
-            "inreview": true
+            "in_review": true,
+            "deleted": false
           }
         },
         "matchingRules": {

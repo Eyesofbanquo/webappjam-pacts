@@ -22,7 +22,8 @@
           "data": [
             {
               "id": "0",
-              "name": "question-type"
+              "name": "question-type",
+              "deleted": false
             }
           ]
         },
@@ -58,7 +59,8 @@
           "success": true,
           "data": {
             "id": "0",
-            "name": "Newer"
+            "name": "Newer",
+            "deleted": false
           }
         },
         "matchingRules": {

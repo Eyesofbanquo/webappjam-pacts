@@ -93,6 +93,26 @@
           "data": null
         }
       }
+    },
+    {
+      "description": "a request to delete a question type",
+      "providerState": "the question type e998c46c-6f0f-4caa-92ad-8f482859938b exists",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/question-types/e998c46c-6f0f-4caa-92ad-8f482859938b"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": {
+            "id": "e998c46c-6f0f-4caa-92ad-8f482859938b",
+            "deleted": true
+          }
+        }
+      }
     }
   ],
   "metadata": {

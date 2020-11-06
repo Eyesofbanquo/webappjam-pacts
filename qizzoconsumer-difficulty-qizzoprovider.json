@@ -1,0 +1,36 @@
+{
+  "consumer": {
+    "name": "QizzoConsumer-difficulty"
+  },
+  "provider": {
+    "name": "QizzoProvider"
+  },
+  "interactions": [
+    {
+      "description": "request for difficulty",
+      "providerState": "Difficulty exists",
+      "request": {
+        "method": "GET",
+        "path": "/api/difficulty"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": [
+            "easy",
+            "normal",
+            "hard"
+          ]
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

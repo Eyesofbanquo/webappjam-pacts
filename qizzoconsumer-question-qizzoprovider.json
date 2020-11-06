@@ -219,6 +219,26 @@
           "error": "Please provide a question type"
         }
       }
+    },
+    {
+      "description": "a request to delete question",
+      "providerState": "question 49fe1601-660e-47b8-9e49-dc001a020540 exists",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/questions/49fe1601-660e-47b8-9e49-dc001a020540"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true,
+          "data": {
+            "id": "49fe1601-660e-47b8-9e49-dc001a020540",
+            "deleted": true
+          }
+        }
+      }
     }
   ],
   "metadata": {

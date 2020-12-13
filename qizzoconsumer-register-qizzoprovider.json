@@ -1,0 +1,69 @@
+{
+  "consumer": {
+    "name": "QizzoConsumer-register"
+  },
+  "provider": {
+    "name": "QizzoProvider"
+  },
+  "interactions": [
+    {
+      "description": "no username and no password",
+      "providerState": "the service is up",
+      "request": {
+        "method": "POST",
+        "path": "/register",
+        "body": {
+          "username": "",
+          "password": ""
+        }
+      },
+      "response": {
+        "status": 422,
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "success": false
+        },
+        "matchingRules": {
+          "$.body.success": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "username and password are valid",
+      "providerState": "the service is up",
+      "request": {
+        "method": "POST",
+        "path": "/register",
+        "body": {
+          "username": "Eyesofbanquo",
+          "password": "20400112"
+        }
+      },
+      "response": {
+        "status": 422,
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "body": {
+          "success": true
+        },
+        "matchingRules": {
+          "$.body.success": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

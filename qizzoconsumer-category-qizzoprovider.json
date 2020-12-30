@@ -78,11 +78,20 @@
             "id": "1",
             "name": "New Nightmare",
             "in_review": true,
-            "deleted": false
+            "deleted": false,
+            "user": {
+              "user_id": "uuid"
+            }
           }
         },
         "matchingRules": {
           "$.body.data.id": {
+            "match": "type"
+          },
+          "$.body.data.user": {
+            "match": "type"
+          },
+          "$.body.data.user.user_id": {
             "match": "type"
           }
         }
